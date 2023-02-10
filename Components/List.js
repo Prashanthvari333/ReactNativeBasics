@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View,ScrollView } from 'react-native'
 import React, { useState } from 'react'
 
 const List = () => {
@@ -15,15 +15,19 @@ const List = () => {
   return (
     <View>
        {
-         users.map(
-           (user)=>{
-             return (
-               <View key={user.key}>
-                <Text style={styles.listitems}>{user.name}</Text>
-               </View>
-             );
-           }
-         )
+         <ScrollView>
+          {
+            users.map(
+            (user)=>{
+              return (
+                <View key={user.key}>
+                  <Text style={styles.listitems}>{user.name}</Text>
+                </View>
+              );
+            }
+          )
+        }
+         </ScrollView>
        }
     </View>
   )
