@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View,ScrollView } from 'react-native'
+import { StyleSheet, Text, View,ScrollView, FlatList } from 'react-native'
 import React, { useState } from 'react'
 
 const List = () => {
@@ -14,7 +14,7 @@ const List = () => {
     ])
   return (
     <View>
-       {
+       {/*
          <ScrollView>
           {
             users.map(
@@ -28,7 +28,13 @@ const List = () => {
           )
         }
          </ScrollView>
-       }
+      */}
+      {
+        <FlatList
+          data={users}
+          renderItem={({item})=>(<Text style={styles.listitems}> { item.name } </Text>)}//dont know y but working only with "item" not working with "user" 
+        />
+      }
     </View>
   )
 }
@@ -38,8 +44,9 @@ export default List
 const styles = StyleSheet.create({
   listitems:{
     backgroundColor:'lightgreen',
-    padding:10,
+    padding:30,
     marginTop:20,
+    marginHorizontal:30,
     fontWeight:'bold',
   },
 })
