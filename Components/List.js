@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View,ScrollView, FlatList } from 'react-native'
+import { StyleSheet, Text, View,ScrollView, FlatList,TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 
 const List = () => {
@@ -12,6 +12,9 @@ const List = () => {
         {name:'Praveen',id:7},
         {name:'Bunny',id:8},
     ])
+    const pressHandler=(id)=>{
+      setUsers((preUsers)=>{return preUsers.filter(user=>user.id != id)})
+    }
   return (
     <View>
        {/*
@@ -34,7 +37,11 @@ const List = () => {
           numColumns={2}
           keyExtractor={(item)=>item.id}
           data={users}
-          renderItem={({item})=>(<Text style={styles.listitems}> { item.name } </Text>)}
+          renderItem={({item})=>(
+            <TouchableOpacity onPress={()=>pressHandler(5)}>
+              <Text style={styles.listitems}> { item.name } </Text>
+            </TouchableOpacity>
+            )}
           //dont know y but working only with "item" not working with "user" 
           //flat automatically searchs for key in data if not we have to use extractkey
         />
