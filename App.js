@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import BUTTON from './Components/BUTTON';
-
+import Input from './Components/Input';
 export default function App() {
     return (
         <View style={styles.container} >
@@ -10,6 +10,9 @@ export default function App() {
           </View>
           <View>
             <BUTTON/>
+          </View>
+          <View>
+            <Input/>
           </View>
         </View>
     );
