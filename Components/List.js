@@ -3,14 +3,14 @@ import React, { useState } from 'react'
 
 const List = () => {
     const [users,setUsers] = useState([
-        {name:'Prashanth',key:1},
-        {name:'Pranav',key:2},
-        {name:'Dinesh',key:3},
-        {name:'Kalyan',key:4},
-        {name:'Mohit',key:5},
-        {name:'Subbu',key:6},
-        {name:'Praveen',key:7},
-        {name:'Bunny',key:8},
+        {name:'Prashanth',id:1},
+        {name:'Pranav',id:2},
+        {name:'Dinesh',id:3},
+        {name:'Kalyan',id:4},
+        {name:'Mohit',id:5},
+        {name:'Subbu',id:6},
+        {name:'Praveen',id:7},
+        {name:'Bunny',id:8},
     ])
   return (
     <View>
@@ -31,8 +31,12 @@ const List = () => {
       */}
       {
         <FlatList
+          numColumns={2}
+          keyExtractor={(item)=>item.id}
           data={users}
-          renderItem={({item})=>(<Text style={styles.listitems}> { item.name } </Text>)}//dont know y but working only with "item" not working with "user" 
+          renderItem={({item})=>(<Text style={styles.listitems}> { item.name } </Text>)}
+          //dont know y but working only with "item" not working with "user" 
+          //flat automatically searchs for key in data if not we have to use extractkey
         />
       }
     </View>
@@ -45,8 +49,9 @@ const styles = StyleSheet.create({
   listitems:{
     backgroundColor:'lightgreen',
     padding:30,
-    marginTop:20,
+    marginTop:24,
     marginHorizontal:30,
     fontWeight:'bold',
+    margintop:24,
   },
 })
